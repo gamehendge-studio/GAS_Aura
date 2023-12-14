@@ -13,5 +13,16 @@ UCLASS()
 class AURA_API AAuraCharacter : public AAuraCharacterBase
 {
 	GENERATED_BODY()
+
+public:
+	AAuraCharacter();
 	
+	virtual void PossessedBy(AController* NewController);
+	virtual void OnRep_PlayerState() override;
+	
+private:
+	UPROPERTY(EditAnywhere)
+	float RotationYawRate = 400.f;
+
+	void InitAbilityActorInfo();
 };
